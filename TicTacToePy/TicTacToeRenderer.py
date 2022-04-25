@@ -9,15 +9,16 @@ from __future__ import division, print_function
 # - renderGame(game) draws the game onto Processing's display, using a 'X' symbol
 #     for player 1, and a 'O' symbol for player 2
 #
-# - renderGameAndPointer(game, mX, mY) first draws the game onto Processing's display,
-#     as described before; then it draws a mouse pointer, either 'X' or 'O', to indicate 
-#     the next move (if the mouse was pressed)
+# - renderMousePointer(game, mX, mY) draws the mouse pointer, a faint 'X' or 'O', 
+#     to indicate the next move (if the mouse was pressed)
 #
+# - many helper functions to convert between "grid coordinates", i.e. (row, col),
+#     and (x, y) screen coordinates
  
 # HOMEWORK 4-c Write your own TicTacToeRenderer.
-#   This renderer draws red crosses and blue circles into a quadratic  grid.
-#   Use other shapes, other colors, images etc. to create your own visualization
-#   of tic tac toe.
+#   This renderer draws red crosses and blue circles into a quadratic grid.
+#   Use other shapes, colors, images, backgrounds etc. to create your own 
+#   visualization of tic tac toe.
 
 class TicTacToeRenderer:
     
@@ -61,9 +62,7 @@ class TicTacToeRenderer:
             text(str(game.getWinner()) + "!", self.cellLeftX(2), self.cellLowerY(2))
 
 
-    def renderGameAndPointer(self, game, mX, mY):
-        self.renderGame(game)
-
+    def renderMousePointer(self, game, mX, mY):
         if not game.isGameOver() and self.isMouseInGrid(mX, mY):
             col = self.getColumnOf(mX)
             row = self.getRowOf(mY)

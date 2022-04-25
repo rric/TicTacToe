@@ -6,7 +6,8 @@ from __future__ import division, print_function
 # TOUR-2 
 # TicTacToeGame holds the current state of a tic tac toe game.
 # Additionally, it keeps track who the next player is (1 or 2), whether
-# the game is over, and who has won the game (if there is a winner).
+# the game is over, and who has won the game if there is a winner, or
+# whether the game is a draw.
 # 
 # The game is stored as an 3 x 3 array of numbers, like this:
 #

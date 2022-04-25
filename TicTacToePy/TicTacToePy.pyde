@@ -13,22 +13,27 @@
 #     Here, 0 means the cell is empty; 1 means the cell was marked by
 #     player 1, and 2 means the cell was marked by player 2.
 #
-#   (2) The renderer takes a game object, and renders it; i.e, it produces
-#       a visualization of the game. For instance, the method renderGame() 
-#       of ConsoleRenderer prints to the console; the game above would look
-#       like this:
+#     TicTacToeGame only provides a rudimentary visualization: the method 
+#     getAsString(), called for the above game, returns a string such as
 #
 #       --X
 #       --X
 #       O--
-#       Player's 2 move?
+#       Player's 2 move
+#
+#   (2) The renderer takes a game object, and renders it; i.e, it produces
+#       a visualization of the game. If you start this sketch and see the       
+#       game grid, and if you can place some X's and O's, all the drawing
+#       is done by a TicTacToeRenderer object.
 #
 #   (3) You can play TicTacToeJava with your mouse. 
 #       
-#       Therefore, a TicTacToeMouseRenderer has to be used, and some code in
-#       the draw() and mousePressed() functions is necessary to connect game 
-#       and renderer, and to handle mouse actions.
-#  
+#       Therefore, a TicTacToeRenderer has some code to determine which
+#       row and column the mouse points to, and to render the current
+#       mouse position.
+#
+#   (4) In Processing's draw() and mousePressed() functions, some code 
+#       connects game and renderer, and handles mouse actions.
 #     
 #   This software design pattern is called "model-view-controller", or MVC. 
 #   It consists of three parts:
@@ -55,7 +60,6 @@ def setup():
     
     tttGame = TicTacToeGame()
     renderer = TicTacToeRenderer(50, 50, 300, 300)
-
     gameChanged = True
     
 
@@ -65,7 +69,8 @@ def setup():
 def draw():
     global tttGame, renderer, gameChanged
     
-    renderer.renderGameAndPointer(tttGame, mouseX, mouseY)
+    renderer.renderGame(tttGame)
+    renderer.renderMousePointer(tttGame, mouseX, mouseY)
 
     if gameChanged:
         print(tttGame.getAsString())
