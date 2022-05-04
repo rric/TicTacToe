@@ -94,9 +94,9 @@ class TicTacToeGame:
     
     def isGameOver(self):
         # HOMEWORK 4-b Method isGameOver() is not finished yet:
-        #   It returns 'true' only if there is a winner. However, if the
+        #   It returns True only if there is a winner. However, if the
         #   game ends in a tie (no free cell left, and no winner), the 
-        #   method erroneously returns 'false'.
+        #   method erroneously returns False.
         #   Fix this: implement the correct behaviour in case of a tie.
         return (self.getWinner() != 0)
 

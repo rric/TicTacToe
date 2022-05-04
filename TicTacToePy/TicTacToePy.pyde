@@ -26,7 +26,7 @@
 #       game grid, and if you can place some X's and O's, all the drawing
 #       is done by a TicTacToeRenderer object.
 #
-#   (3) You can play TicTacToeJava with your mouse. 
+#   (3) You can play TicTacToe with your mouse. 
 #       
 #       Therefore, a TicTacToeRenderer has some code to determine which
 #       row and column the mouse points to, and to render the current
